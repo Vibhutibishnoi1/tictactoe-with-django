@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+        
+      <form role="form" action="{%url 'player_login' %}" method="post">
+          {% csrf_token %}
+          <p>Please login.</p>
+
+          {{form | crispy }} <!--when calling this template loginview class puts this form object in the template context-->
+          <!--this form object contains the info to help us show the form to the user, we are using this object here by putting it in double curly braces-->
+
+          <button type= "submit" class="btn btn-success">Sign in</button>
+
+      </form>   
+
+{% endblock %}        
